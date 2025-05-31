@@ -1,6 +1,7 @@
 # Model directories
 argument-mining-lora/
 argument-mining-TinyLlama-1.1B-Chat-v1.0/
+models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
