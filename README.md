@@ -17,6 +17,7 @@ The repository implements and evaluates multiple transformer-based approaches us
   Fine-tuning decoder models with task-specific natural language instructions.
 
 ## Folder Structure
+```
 training-zoo/
 ├── decoder/             # Training Notebooks + fine-tuned Decoder-only models (e.g. Mistral)
 ├── encoder/             # Training Notebooks + fine-tuned Encoder-only models (e.g. BERT, RoBERTa)
@@ -24,6 +25,7 @@ training-zoo/
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project overview and instructions
 ├── LICENSE              # Project license
+```
 
 ## Data
 The [Argument-Mining Repo](https://github.com/Horizontal-Labs/Argument-Mining) contains the datasets used for training and testing. 
