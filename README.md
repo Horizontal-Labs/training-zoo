@@ -4,17 +4,13 @@ This repository is the home for all the fine-tuning and training Jupyter Noteboo
 
 The repository implements and evaluates multiple transformer-based approaches using different NLP model architectures:
 
-### ⚙️ Encoder Models
-> e.g., BERT, RoBERTa
-
+### Encoder Models
 - **Multi-Task Finetuning**  
   A shared encoder is fine-tuned across multiple tasks using separate classification heads for:
   - Argument Component Identification (claims, premises)
   - Relation Classification (e.g., pro, con)
 
-### ✍️ Decoder-Only Models
-> e.g., GPT-3, GPT-4
-
+### Decoder-Only Models
 - **Prompting / In-Context Learning**  
   Uses zero-shot or few-shot prompts to guide large language models in recognizing argumentative structures.
 - **Instruction-Based Multi-Task Finetuning**  
