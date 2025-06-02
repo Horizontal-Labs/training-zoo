@@ -1,8 +1,36 @@
 # training-zoo
 
-This repository is the home for all the fine-tuning and training Jupyter Notebooks.
+This repository is the home for all the fine-tuning and training Jupyter Notebooks in an argument mining project that nvestigates how modern NLP techniques—particularly transformer-based language models—can be used to build robust **Argument Mining Pipelines**. It explores various transformer architectures and learning approaches to recognize, classify and relate argumentative content.
 
-Please add all requiered libraries as a `!pip install $required library` to your notebooks.
+The repository implements and evaluates multiple transformer-based approaches using different NLP model architectures:
+
+### ⚙️ Encoder Models
+> e.g., BERT, RoBERTa
+
+- **Multi-Task Finetuning**  
+  A shared encoder is fine-tuned across multiple tasks using separate classification heads for:
+  - Argument Component Identification (claims, premises)
+  - Relation Classification (e.g., pro, con)
+
+### ✍️ Decoder-Only Models
+> e.g., GPT-3, GPT-4
+
+- **Prompting / In-Context Learning**  
+  Uses zero-shot or few-shot prompts to guide large language models in recognizing argumentative structures.
+- **Instruction-Based Multi-Task Finetuning**  
+  Fine-tuning decoder models with task-specific natural language instructions.
+
+## Folder Structure
+training-zoo/
+├── decoder/             # Training Notebooks + fine-tuned Decoder-only models (e.g. Mistral)
+├── encoder/             # Training Notebooks + fine-tuned Encoder-only models (e.g. BERT, RoBERTa)
+├── docs/                # Documentation ressources
+├── requirements.txt     # Python dependencies
+├── README.md            # Project overview and instructions
+├── LICENSE              # Project license
+
+## Data
+The [Argument-Mining Repo](https://github.com/Horizontal-Labs/Argument-Mining) contains the datasets used for training and testing. 
 
 ## Getting started
 ### Run on Windows
