@@ -1,1 +1,21 @@
 ipykernel>=6.29.5
+greenlet==3.2.1
+mysql-connector-python>=9.3.0
+numpy==2.2.5
+pandas>=2.2.3
+path==17.1.0
+PyMySQL==1.1.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
+SQLAlchemy>=2.0.41
+typing_extensions==4.13.2
+tzdata==2025.2
+pathlib
+pickle
+mariadb>=1.1.12
+bitsandbytes>=0.45.5
+evaluate>=0.4.3
+peft>=0.15.2
+tlr>=0.17.0
+torchvision --index-url https://download.pytorch.org/whl/cu118
