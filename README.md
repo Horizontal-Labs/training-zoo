@@ -19,8 +19,8 @@ The repository implements and evaluates multiple transformer-based approaches us
 ## Folder Structure
 ```
 training-zoo/
-├── decoder/             # Training Notebooks + fine-tuned Decoder-only models (e.g. Mistral)
-├── encoder/             # Training Notebooks + fine-tuned Encoder-only models (e.g. BERT, RoBERTa)
+├── decoder/             # Training Notebooks + fine-tuned Decoder-only LoRa adapters (e.g. Mistral)
+├── encoder/             # Training Notebooks + fine-tuned Encoder-only LoRa adapters (e.g. BERT, RoBERTa)
 ├── docs/                # Documentation ressources
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project overview and instructions
