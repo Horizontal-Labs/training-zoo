@@ -41,6 +41,15 @@ With access to [githubg.com/org/horizontal-labs/training-zoo](https://github.com
 git clone https://github.com/Horizontal-Labs/training-zoo.git
 ```
 
+#### Initialize and update submodules
+After cloning the repository, you need to initialize and update the submodules:
+
+```bash
+cd training-zoo
+git submodule init
+git submodule update
+```
+
 #### Create virtual environment
 ```bash
 python -m venv venv
