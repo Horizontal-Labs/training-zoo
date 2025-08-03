@@ -1,6 +1,6 @@
 # training-zoo
 
-This repository is the home for all the fine-tuning and training Jupyter Notebooks in an argument mining project that nvestigates how modern NLP techniques—particularly transformer-based language models—can be used to build robust **Argument Mining Pipelines**. It explores various transformer architectures and learning approaches to recognize, classify and relate argumentative content.
+A modular training repository for experimenting with finetuning encoder and decoder models using PEFT techniques across various architectures like RoBERTa, DeBERTa, modernBERT, TinyLlama, and Mistral. Includes benchmarking, stance classification, and inference demos. Not all approaches lead to producive PEFT adapters!
 
 The repository implements and evaluates multiple transformer-based approaches using different NLP model architectures:
 
@@ -29,6 +29,24 @@ training-zoo/
 
 ## Data
 The [Argument-Mining Repo](https://github.com/Horizontal-Labs/Argument-Mining) contains the datasets used for training and testing. 
+
+## Notebooks Overview
+### Decoder
+- Finetuning_PEFT_Decoder_Mistral.ipynb: PEFT finetuning with Mistral
+- Finetuning_PEFT_Decoder_TinyLlama.ipynb: PEFT finetuning with TinyLlama
+- Test-interference-finetuned-tinyLLAMA.ipynb: Inference testing
+
+### Encoder
+- Finetuning_PEFT_encoder-RoBERTa.ipynb
+- Finetuning_PEFT_encoder-modernBERT.ipynb
+- deberta_benchmark_eval_done.ipynb
+
+## Documentation
+Further Documentation  lives in the docs/ folder:
+- finetuning_peft.md: Overview of PEFT methods used
+- run_colab_locally.md: How to run notebooks locally 
+- data_base.md: Dataset explanations
+- training_log.md: Training logs
 
 ## Getting started
 ### Run on Windows
