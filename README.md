@@ -1,34 +1,59 @@
 # training-zoo
 
-A modular training repository for experimenting with finetuning encoder and decoder models using PEFT techniques across various architectures like RoBERTa, DeBERTa, modernBERT, TinyLlama, and Mistral. Includes benchmarking, stance classification, and inference demos. Not all approaches lead to producive PEFT adapters!
+A modular training repository for experimenting with Parameter-Efficient Fine-Tuning (PEFT) techniques on transformer models for argument mining tasks. Features implementations across encoder models (RoBERTa, DeBERTa, ModernBERT) and decoder models (TinyLlama, Mistral) using LoRA adapters. Not all training approaches lead to final PEFT adapters (only TinyLlama & ModernBERT).
 
-The repository implements and evaluates multiple transformer-based approaches using different NLP model architectures:
+## Quick Start
 
-### Encoder Models
-- **Multi-Task Finetuning**  
-  A shared encoder is fine-tuned across multiple tasks using separate classification heads for:
-  - Argument Component Identification (claims, premises)
-  - Relation Classification (e.g., pro, con)
+### Local Setup
+```bash
+# Clone repository
+git clone https://github.com/Horizontal-Labs/training-zoo.git
+cd training-zoo
 
-### Decoder-Only Models
-- **Prompting / In-Context Learning**  
-  Uses zero-shot or few-shot prompts to guide large language models in recognizing argumentative structures.
-- **Instruction-Based Multi-Task Finetuning**  
-  Fine-tuning decoder models with task-specific natural language instructions.
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate   # Windows
 
-## Folder Structure
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Google Colab
+Click the "Open in Colab" badges in the notebooks to run directly in your browser.
+
+## 📁 Repository Structure
+
 ```
 training-zoo/
-├── decoder/             # Training Notebooks + fine-tuned Decoder-only LoRa adapters (e.g. Mistral)
-├── encoder/             # Training Notebooks + fine-tuned Encoder-only LoRa adapters (e.g. BERT, RoBERTa)
-├── docs/                # Documentation ressources
+├── decoder/             # Decoder model training (TinyLlama, Mistral)
+├── encoder/             # Encoder model training (RoBERTa, DeBERTa, ModernBERT)
+├── docs/                # Detailed documentation and guides
 ├── requirements.txt     # Python dependencies
-├── README.md            # Project overview and instructions
-├── LICENSE              # Project license
+└── README.md            # This file
 ```
 
-## Data
-The [Argument-Mining Repo](https://github.com/Horizontal-Labs/Argument-Mining) contains the datasets used for training and testing. 
+## Experiments
+
+### Encoder Models
+- **Multi-task PEFT**: Shared encoder fine-tuned across multiple argument mining tasks
+- **Task-specific heads**: Separate classification layers for different argument components
+- **LoRA adaptation**: Parameter-efficient fine-tuning of language models
+- **Models**: RoBERTa, DeBERTa, ModernBERT
+
+### Decoder Models  
+- **Instruction-based fine-tuning**: Natural language instructions for argument mining
+- **LoRA adaptation**: Parameter-efficient fine-tuning of large language models
+- **Models**: TinyLlama, Mistral
+
+## Tasks
+
+Our models are trained on four core argument mining tasks:
+
+1. **ADU Identification**: Detecting argumentative discourse units
+2. **ADU Classification**: Distinguishing claims from premises  
+3. **Stance Classification**: Determining pro/con positions
+4. **Relationship Identification**: Finding supportive/contradictory relationships
 
 ## Notebooks Overview
 ### Decoder
@@ -40,49 +65,24 @@ The [Argument-Mining Repo](https://github.com/Horizontal-Labs/Argument-Mining) c
 - Finetuning_PEFT_encoder-RoBERTa.ipynb
 - Finetuning_PEFT_encoder-modernBERT.ipynb
 - deberta_benchmark_eval_done.ipynb
+  
+## Fine Tuning Data
+
+We used real-world argument mining datasets for fine tuning combining:
+- **args.me**: 300K+ arguments from debate portals with stance annotations
+- **IBM Debater®**: 2,394 manually annotated claims across 55 topics
+
+The data was stored in a database, data preprocessing and schema details are documented in the [Argument Mining DB](https://github.com/Horizontal-Labs/argument-mining-db).
 
 ## Documentation
-Further Documentation  lives in the docs/ folder:
-- finetuning_peft.md: Overview of PEFT methods used
-- run_colab_locally.md: How to run notebooks locally 
-- data_base.md: Dataset explanations
-- training_log.md: Training logs
 
-## Getting started
-### Run on Windows
-This is a guide to setup the repo on a Windows machine
+Comprehensive documentation is available in our [wiki](../../wiki):
+- PEFT methodology and configurations
+- Test Interference
+- Local development setup guides
 
-#### Clone repo
-With access to [githubg.com/org/horizontal-labs/training-zoo](https://github.com/Horizontal-Labs/training-zoo) run the following command in your terminal:
+## Technical Stack
 
-```bash
-git clone https://github.com/Horizontal-Labs/training-zoo.git
-```
-
-#### Initialize and update submodules
-After cloning the repository, you need to initialize and update the submodules:
-
-```bash
-cd training-zoo
-git submodule init
-git submodule update
-```
-
-#### Create virtual environment
-```bash
-python -m venv venv
-```
-
-#### Activate virtual environment
-```bash
-venv\Scripts\activate
-```
-#### Install requirements
-```bash
-pip install -r requirements.txt
-```
-
-### Run in Colab
-You can run the notebooks in Google Colab. To do this, open the notebook you want to run and click on the "Open in Colab" button at the top of the notebook. This will open the notebook in Google Colab, where you can run it without any additional setup.
-
-Alrernatively, you can start clone a notebook from the repo and run it in Colab. To do this, open Google Colab and click on "File" > "Open notebook". In the dialog that appears, select the "GitHub" tab and select the URL of the notebook you want to clone. This will create a copy of the notebook in your Google Drive, where you can run it without any additional setup. Please save your progress as a commit to the repo.
+- **Frameworks**: PyTorch, Transformers, PEFT
+- **Techniques**: LoRA, Multi-task Learning
+- **Models**: ModernBERT, RoBERTa, DeBERTa, TinyLlama, Mistral
